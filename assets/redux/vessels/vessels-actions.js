@@ -38,6 +38,12 @@ export const selectVessel = vessel => {
     payload: { vessel }
   }
 }
+export const filterVessels = vessels => {
+  return {
+    type: actions.FILTER_VESSEL,
+    payload: { vessels }
+  }
+}
 
 export const setVessels = vessels => {
   return {
@@ -65,4 +71,3 @@ export const unselectVessel = () => {
     type: actions.UNSELECT_VESSEL
   }
 }
-

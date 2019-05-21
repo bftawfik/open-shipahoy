@@ -36,7 +36,7 @@ class MapPage extends PolymerElement {
           --iron-icon-width: 32px;
         }
         vessels-list {
-          height: calc(100% - 116px);
+          height: calc(100% - 178px);
           margin: 2px 0;
           overflow-y: auto;
         }
