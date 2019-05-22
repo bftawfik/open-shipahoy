@@ -12,7 +12,6 @@ export const GET_VESSELS_REQUEST = `${p} GET_REQUEST`
 export const GET_VESSELS_SUCCESS = `${p} GET_SUCCESS`
 export const RESET_VESSELS = `${p} RESET_ALL`
 export const SELECT_VESSEL = `${p} SELECT_ONE`
-export const FILTER_VESSEL = `${p} FILTER_ALL`
 export const SET_VESSELS = `${p} SET_ALL`
 export const UNFOLLOW_VESSEL = `${p} UNFOLLOW`
 export const UPDATE_VESSEL_POSITION = `${p} UPDATE_POSITION`

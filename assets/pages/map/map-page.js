@@ -10,7 +10,6 @@ import '@polymer/paper-icon-button/paper-icon-button.js'
 import './bottom-sheet.js'
 import './drawer-footer.js'
 import './map-element.js'
-import './search-bar.js'
 import './vessels-list.js'
 import '../../ship-ahoy-icons.js'
 import '../../ship-ahoy-shared-styles.js'
@@ -36,7 +35,7 @@ class MapPage extends PolymerElement {
           --iron-icon-width: 32px;
         }
         vessels-list {
-          height: calc(100% - 178px);
+          height: calc(100% - 116px);
           margin: 2px 0;
           overflow-y: auto;
         }
@@ -49,7 +48,6 @@ class MapPage extends PolymerElement {
             <iron-icon icon="ship-ahoy-icons:logo"></iron-icon>
             <div main-title>Find Vessel</div>
           </app-toolbar>
-          <search-bar></search-bar>
           <vessels-list></vessels-list>
           <drawer-footer></drawer-footer>
         </app-drawer>

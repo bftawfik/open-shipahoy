@@ -2,6 +2,8 @@ import '@polymer/iron-collapse/iron-collapse.js'
 import '@polymer/iron-list/iron-list.js'
 import '@polymer/paper-button/paper-button.js'
 import '@polymer/paper-item/paper-item.js'
+import '@polymer/paper-input/paper-input.js';
+import '@polymer/iron-icons/iron-icons.js';
 import '../../ship-ahoy-icons.js'
 import '../../ship-ahoy-shared-styles.js'
 import { html } from '@polymer/polymer/polymer-element.js'
@@ -23,6 +25,9 @@ class VesselsList extends ContainerPrototype {
         :host {
           @apply --layout-flex;
           @apply --layout-vertical;
+        }
+        paper-input {
+          padding: 0.4em
         }
         iron-list {
           max-height: 60vh;
@@ -60,7 +65,9 @@ class VesselsList extends ContainerPrototype {
           margin-top: 3px;
         }
       </style>
-
+      <paper-input id="searchBar" type="search" placeholder="search for vessels" value="{{valueNameToStore}}">
+        <paper-icon-button slot="suffix" icon="search"></paper-icon-button>
+      </paper-input>
       <template is="dom-repeat" items="[[_vesselGroups]]" as="group">
         <paper-button style$="[[_computeColorAndShow(group)]]" on-tap="_toggleCollapse">
           [[group.name]]
@@ -155,7 +162,19 @@ class VesselsList extends ContainerPrototype {
     this._selectedVessel = selectedVesselSelector(state)
     this._vesselGroups = vesselGroupsSelector(state)
     this._vessels = vesselsSelector(state)
+    if(this.valueNameToStore.length > 0){
+      let filteredVessels = [...this._vesselGroups];
+      for(let i=0; i<this._vesselGroups.length; i++){
+        let vg = Object.assign({},this._vesselGroups[i]);
+        vg.vessels = vg.vessels.filter(v => v.name.toLowerCase().indexOf(this.valueNameToStore.toLowerCase()) > -1);
+        filteredVessels[i] = vg;
+      }
+      this._vesselGroups = filteredVessels;
+    }
+
   }
 }
+
+
 
 customElements.define(VesselsList.is, VesselsList)
